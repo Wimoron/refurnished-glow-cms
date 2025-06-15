@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Zap, Shield, Recycle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -21,12 +21,16 @@ const Hero = () => {
               Same power, reduced price, sustainable choice.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-6 text-lg">
-                Shop Now
-                <ArrowRight className="ml-2 h-5 w-5" />
+              <Button asChild size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-6 text-lg">
+                <Link to="/products">
+                  Shop Now
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
-              <Button variant="outline" size="lg" className="px-8 py-6 text-lg border-border hover:bg-accent">
-                Learn More
+              <Button asChild variant="outline" size="lg" className="px-8 py-6 text-lg border-border hover:bg-accent">
+                <Link to="/about-us">
+                  Learn More
+                </Link>
               </Button>
             </div>
           </div>

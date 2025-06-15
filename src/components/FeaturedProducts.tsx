@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
@@ -78,8 +77,10 @@ const FeaturedProducts = () => {
         </div>
 
         <div className="text-center mt-12">
-          <Button variant="outline" size="lg" className="px-8">
-            View All Products
+          <Button asChild variant="outline" size="lg" className="px-8">
+            <Link to="/products">
+              View All Products
+            </Link>
           </Button>
         </div>
       </div>

@@ -11,6 +11,7 @@ import AdminProducts from "./pages/AdminProducts";
 import AdminPages from "./pages/AdminPages";
 import ProductDetail from "./pages/ProductDetail";
 import AboutUs from "./pages/AboutUs";
+import Products from "./pages/Products";
 import DynamicPage from "./pages/DynamicPage";
 import ProductForm from "./components/admin/ProductForm";
 import PageForm from "./components/admin/PageForm";
@@ -26,6 +27,7 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/products" element={<Products />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/admin/products" element={<AdminProducts />} />
