@@ -37,11 +37,26 @@ const Header = () => {
   const handleScrollClick = (e: React.MouseEvent, href: string) => {
     if (href.startsWith('#')) {
       e.preventDefault();
+      // If we're not on the home page, navigate to home first
+      if (location.pathname !== '/') {
+        window.location.href = '/' + href;
+        return;
+      }
+      // If we're on the home page, scroll to the element
       const element = document.querySelector(href);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     }
+  };
+
+  const handleHomeClick = (e: React.MouseEvent) => {
+    // If we're already on the home page, scroll to top
+    if (location.pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    // Otherwise, let the Link component handle navigation to home
   };
 
   const isActiveLink = (href: string) => {
@@ -64,6 +79,7 @@ const Header = () => {
           <Link 
             to="/" 
             className="flex items-center space-x-3 group transition-transform duration-300 hover:scale-105"
+            onClick={handleHomeClick}
           >
             <div className="relative">
               {/* Main logo container with artistic design */}
@@ -109,7 +125,13 @@ const Header = () => {
                     ? "text-foreground bg-accent/30" 
                     : "text-muted-foreground"
                 )}
-                onClick={(e) => handleScrollClick(e, item.href)}
+                onClick={(e) => {
+                  if (item.name === 'Home') {
+                    handleHomeClick(e);
+                  } else {
+                    handleScrollClick(e, item.href);
+                  }
+                }}
               >
                 {item.name}
                 <span className={cn(
@@ -209,7 +231,11 @@ const Header = () => {
                       : "text-muted-foreground"
                   )}
                   onClick={(e) => {
-                    handleScrollClick(e, item.href);
+                    if (item.name === 'Home') {
+                      handleHomeClick(e);
+                    } else {
+                      handleScrollClick(e, item.href);
+                    }
                     setIsMenuOpen(false);
                   }}
                 >
