@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Facebook, Twitter, Instagram, Linkedin, Mail } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, Mail, Laptop, Zap } from 'lucide-react';
 
 const Footer = () => {
   const footerLinks = {
@@ -25,9 +24,20 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
           {/* Brand Section */}
           <div className="lg:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">RL</span>
+            <div className="flex items-center space-x-3 mb-4">
+              {/* Artistic Logo */}
+              <div className="relative">
+                <div className="w-10 h-10 relative overflow-hidden rounded-xl bg-gradient-to-br from-blue-500 via-purple-600 to-pink-500 shadow-lg">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 via-purple-500/20 to-pink-400/20"></div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="relative">
+                      <Laptop className="h-5 w-5 text-white" />
+                      <Zap className="h-2 w-2 text-yellow-300 absolute -top-0.5 -right-0.5" />
+                    </div>
+                  </div>
+                  <div className="absolute top-0.5 left-0.5 w-1.5 h-1.5 bg-white/30 rounded-full"></div>
+                  <div className="absolute bottom-0.5 right-0.5 w-1 h-1 bg-yellow-300/50 rounded-full"></div>
+                </div>
               </div>
               <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
                 RefurbishedLaptops
@@ -54,7 +64,7 @@ const Footer = () => {
           {/* Links Sections */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h4 className="font-semibold mb-4">{category}</h4>
+              <h4 className="font-semibold mb-4 text-foreground">{category}</h4>
               <ul className="space-y-2">
                 {links.map((link) => (
                   <li key={link}>
@@ -74,7 +84,7 @@ const Footer = () => {
         {/* Newsletter */}
         <div className="border-t border-border pt-8 mb-8">
           <div className="max-w-md">
-            <h4 className="font-semibold mb-2">Stay Updated</h4>
+            <h4 className="font-semibold mb-2 text-foreground">Stay Updated</h4>
             <p className="text-muted-foreground mb-4">
               Get the latest deals and tech insights delivered to your inbox.
             </p>
@@ -82,7 +92,7 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="flex-1 px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-foreground placeholder:text-muted-foreground"
               />
               <button className="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-200">
                 Subscribe

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Settings, ChevronDown } from 'lucide-react';
+import { Menu, X, Settings, ChevronDown, Laptop, Zap } from 'lucide-react';
 import { useContent } from '@/contexts/ContentContext';
 import { cn } from '@/lib/utils';
 
@@ -54,23 +54,40 @@ const Header = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
         isScrolled 
-          ? "bg-background/95 backdrop-blur-xl border-b border-border/50 shadow-lg shadow-black/5" 
+          ? "bg-background/95 backdrop-blur-xl border-b border-border/50 shadow-lg shadow-purple-500/5" 
           : "bg-transparent"
       )}
     >
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
+          {/* Artistic Logo */}
           <Link 
             to="/" 
             className="flex items-center space-x-3 group transition-transform duration-300 hover:scale-105"
           >
             <div className="relative">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 via-purple-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:shadow-blue-500/25 transition-all duration-300">
-                <span className="text-white font-bold text-lg">RL</span>
+              {/* Main logo container with artistic design */}
+              <div className="w-12 h-12 relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-500 via-purple-600 to-pink-500 shadow-lg group-hover:shadow-xl group-hover:shadow-blue-500/25 transition-all duration-300">
+                {/* Animated background pattern */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 via-purple-500/20 to-pink-400/20 animate-pulse"></div>
+                
+                {/* Laptop icon with artistic styling */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative">
+                    <Laptop className="h-6 w-6 text-white transform group-hover:rotate-12 transition-transform duration-300" />
+                    <Zap className="h-3 w-3 text-yellow-300 absolute -top-1 -right-1 animate-pulse" />
+                  </div>
+                </div>
+                
+                {/* Decorative elements */}
+                <div className="absolute top-1 left-1 w-2 h-2 bg-white/30 rounded-full animate-ping"></div>
+                <div className="absolute bottom-1 right-1 w-1 h-1 bg-yellow-300/50 rounded-full animate-bounce"></div>
               </div>
-              <div className="absolute -inset-1 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl opacity-0 group-hover:opacity-20 blur transition-all duration-300"></div>
+              
+              {/* Outer glow effect */}
+              <div className="absolute -inset-1 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl opacity-0 group-hover:opacity-20 blur transition-all duration-300"></div>
             </div>
+            
             <div className="hidden sm:block">
               <span className="text-xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 bg-clip-text text-transparent">
                 RefurbishedLaptops
@@ -118,7 +135,7 @@ const Header = () => {
                 </button>
                 
                 <div className={cn(
-                  "absolute top-full left-0 mt-2 w-56 bg-background/95 backdrop-blur-xl border border-border/50 rounded-xl shadow-xl shadow-black/10 transition-all duration-300 origin-top",
+                  "absolute top-full left-0 mt-2 w-56 bg-background/95 backdrop-blur-xl border border-border/50 rounded-xl shadow-xl shadow-purple-500/10 transition-all duration-300 origin-top",
                   activeDropdown === 'pages' 
                     ? "opacity-100 scale-100 translate-y-0" 
                     : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
